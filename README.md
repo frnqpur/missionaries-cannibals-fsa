@@ -24,7 +24,6 @@ This project turns that logic into an interactive Pygame application where the p
 - Validates puzzle rules during gameplay.
 - Includes animated boat movement and mouse-based interaction.
 - Packaged as a Windows executable using **PyInstaller**.
-- Prepared with screenshots, demo assets, portfolio documentation, and GitHub-ready README.
 
 ---
 
