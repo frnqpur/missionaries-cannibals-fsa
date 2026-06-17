@@ -9,7 +9,7 @@ The goal is to keep the original game feel while making the project easier to ru
 Open PowerShell and go to this folder:
 
 ```powershell
-cd E:\laragon\www\missionaries-cannibals-fsa\original-pygame
+cd "YOUR DIRECTORY"
 ```
 
 Create a virtual environment:
@@ -78,7 +78,7 @@ If `pygame` fails to install or run with Python 3.13, use Python 3.11 or Python 
 Example with Python 3.12:
 
 ```powershell
-cd E:\laragon\www\missionaries-cannibals-fsa\original-pygame
+cd "YOUR DIRECTORY"
 py -3.12 -m venv venv
 .\venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
@@ -89,7 +89,7 @@ python main.py
 Example with Python 3.11:
 
 ```powershell
-cd E:\laragon\www\missionaries-cannibals-fsa\original-pygame
+cd "YOUR DIRECTORY"
 py -3.11 -m venv venv
 .\venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
