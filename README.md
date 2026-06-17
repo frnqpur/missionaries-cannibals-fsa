@@ -36,11 +36,6 @@ Demo video file:
 demo-assets/video/missionaries-cannibals-fsa-demo.mp4
 ```
 
-Recommended public demo options:
-
-- Upload the video to YouTube, Google Drive, or GitHub Releases.
-- Add the final video URL here after upload.
-
 Demo video link:
 
 ```text
