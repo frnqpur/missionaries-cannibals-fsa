@@ -44,7 +44,7 @@ Recommended public demo options:
 Demo video link:
 
 ```text
-Coming soon
+https://missionaries-cannibals-fsa.frengkipurba.com/video/missionaries-cannibals-fsa-demo.mp4
 ```
 
 Portfolio page:
@@ -60,7 +60,7 @@ https://frengkipurba.com/projects/missionaries-cannibals-fsa
 Recommended release file:
 
 ```text
-MissionariesCannibalsFSA-Windows.zip
+https://missionaries-cannibals-fsa.frengkipurba.com/downloads/MissionariesCannibalsFSA-Windows.zip
 ```
 
 Recommended distribution method:
@@ -78,16 +78,6 @@ https://github.com/frnqpur/missionaries-cannibals-fsa/releases
 > Note: Windows may show a SmartScreen warning because this is an unsigned portfolio executable. Download only from the official GitHub Release or portfolio link.
 
 ---
-
-## Screenshots
-
-The screenshots below follow the portfolio screenshot checklist from:
-
-```text
-portfolio-kit/13_missionaries-cannibals-fsa_portfolio-kit/SCREENSHOT_CHECKLIST.md
-```
-
-They focus on the **original Pygame app**, **state/action display**, **rule validation**, and **Windows executable output**.
 
 ### 1. Start Screen
 
@@ -243,43 +233,26 @@ missionaries-cannibals-fsa/
 │   ├── main.py
 │   ├── Person.py
 │   ├── Boat.py
+│   ├── isi game.ipynb
 │   ├── images/
 │   ├── music/
-│   ├── requirements.txt
-│   └── build_exe.ps1
+│   ├── screenshots/
+│   └── requirements.txt
 ├── demo-assets/
 │   ├── screenshots/
 │   └── video/
-├── portfolio-page-template/
-├── portfolio-kit/
-│   └── 13_missionaries-cannibals-fsa_portfolio-kit/
 ├── release/
-├── web-demo/
 ├── README.md
 ├── .gitignore
 └── LICENSE
 ```
-
-Generated files and large local folders should not be committed unless intentionally needed:
-
-```text
-original-pygame/venv/
-original-pygame/build/
-original-pygame/dist/
-original-pygame/*.spec
-original-pygame/dist/MissionariesCannibalsFSA/_internal/
-```
-
-For executable distribution, upload the final ZIP to **GitHub Releases** instead of committing large binary output directly to the repository.
-
----
 
 ## Local Setup
 
 Open PowerShell on Windows:
 
 ```powershell
-cd E:\laragon\www\missionaries-cannibals-fsa\original-pygame
+cd "YOUR DIRECTORY"
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
@@ -314,7 +287,7 @@ original-pygame/main.py
 Run the app:
 
 ```powershell
-cd E:\laragon\www\missionaries-cannibals-fsa\original-pygame
+cd "YOUR DIRECTORY"
 python main.py
 ```
 
@@ -327,7 +300,7 @@ The game uses Pygame to render the background, missionaries, cannibals, boat, st
 Use the included PowerShell script:
 
 ```powershell
-cd E:\laragon\www\missionaries-cannibals-fsa\original-pygame
+cd "YOUR DIRECTORY"
 .\build_exe.ps1
 ```
 
@@ -353,13 +326,7 @@ original-pygame/dist/MissionariesCannibalsFSA/MissionariesCannibalsFSA.exe
 Create release ZIP:
 
 ```powershell
-Compress-Archive -Path "E:\laragon\www\missionaries-cannibals-fsa\original-pygame\dist\MissionariesCannibalsFSA" -DestinationPath "E:\laragon\www\missionaries-cannibals-fsa\release\MissionariesCannibalsFSA-Windows.zip" -Force
-```
-
-Recommended distribution:
-
-```text
-Upload MissionariesCannibalsFSA-Windows.zip to GitHub Releases.
+Compress-Archive -Path "YOUR DIRECTORY" -DestinationPath "YOUR DIRECTORY" -Force
 ```
 
 ---
@@ -433,32 +400,7 @@ The player wins when all missionaries and cannibals reach the right bank safely 
 
 - GitHub: https://github.com/frnqpur/missionaries-cannibals-fsa
 - Portfolio page: https://frengkipurba.com/projects/missionaries-cannibals-fsa
-- Optional landing page: https://missionaries-cannibals-fsa.frengkipurba.com
-
----
-
-## Public Repository Notes
-
-Before publishing this project as a public GitHub repository, make sure the following files are not committed:
-
-```text
-.env
-.env.*
-password files
-API keys
-hosting credentials
-SSH keys
-database dumps
-original-pygame/venv/
-original-pygame/build/
-original-pygame/dist/
-__pycache__/
-node_modules/
-temporary logs
-large executable ZIP files unless intentionally released
-```
-
-The executable ZIP and large demo videos are better distributed through **GitHub Releases**, YouTube, Google Drive, or the portfolio page.
+- Landing page: https://missionaries-cannibals-fsa.frengkipurba.com
 
 ---
 
@@ -477,7 +419,7 @@ The executable ZIP and large demo videos are better distributed through **GitHub
 
 ## Author
 
-**Frengki Purba**
+**Frengki Josua Purba**
 
 - GitHub: https://github.com/frnqpur
 - Portfolio: https://frengkipurba.com
