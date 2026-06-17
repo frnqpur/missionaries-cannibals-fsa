@@ -63,16 +63,10 @@ Recommended release file:
 https://missionaries-cannibals-fsa.frengkipurba.com/downloads/MissionariesCannibalsFSA-Windows.zip
 ```
 
-Recommended distribution method:
-
-```text
-GitHub Releases
-```
-
 GitHub Releases link:
 
 ```text
-https://github.com/frnqpur/missionaries-cannibals-fsa/releases
+https://github.com/frnqpur/missionaries-cannibals-fsa/releases/download/untagged-6c688d33880bda1d5b8c/MissionariesCannibalsFSA-Windows.zip
 ```
 
 > Note: Windows may show a SmartScreen warning because this is an unsigned portfolio executable. Download only from the official GitHub Release or portfolio link.
