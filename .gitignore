@@ -53,18 +53,6 @@ original-pygame/dist/
 original-pygame/*.spec
 original-pygame/*.manifest
 
-# -----------------------------
-# Release archives / packaged binaries
-# Uncomment the exception only if you intentionally want to version a small release ZIP.
-# Recommended default: keep release ZIPs out of the main repository and upload to GitHub Releases.
-# -----------------------------
-release/*.zip
-release/*.exe
-release/*.msi
-*.exe
-*.msi
-*.zip
-
 # Keep placeholder files if needed
 !release/.gitkeep
 
