@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio case study for FSA-Based Missionaries and Cannibals Puzzle Game." />
+  <title>FSA-Based Missionaries and Cannibals Puzzle Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container nav">
+      <a class="brand" href="#top">Missionaries Cannibals FSA</a>
+      <div class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#fsa">FSA Logic</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="#setup">Setup</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Python • Pygame • FSA • PyInstaller</p>
+          <h1>FSA-Based Missionaries and Cannibals Puzzle Game</h1>
+          <p class="subtitle">
+            A Python/Pygame implementation of the classic Missionaries and Cannibals problem,
+            demonstrating finite state automata, state transitions, and rule-based validation.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="../demo-assets/video/missionaries-cannibals-fsa-demo.mp4">Watch Demo Video</a>
+            <a class="btn btn-secondary" href="../release/MissionariesCannibalsFSA-Windows.zip">Download Windows App</a>
+            <a class="btn btn-outline" href="https://github.com/frnqpur/missionaries-cannibals-fsa" target="_blank" rel="noopener">View GitHub</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h2>Project Snapshot</h2>
+          <dl>
+            <div><dt>Original App</dt><dd>Python/Pygame desktop game</dd></div>
+            <div><dt>Logic Model</dt><dd>Finite-state representation</dd></div>
+            <div><dt>Packaging</dt><dd>Windows executable via PyInstaller</dd></div>
+            <div><dt>Goal</dt><dd>Recruiter-friendly case study</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section id="overview" class="section container">
+      <p class="eyebrow">Project Overview</p>
+      <h2>From original Pygame project to portfolio-ready desktop app</h2>
+      <p>
+        This project started as a Python/Pygame game created to visualize state-based logic in the
+        Missionaries and Cannibals puzzle. The original implementation is preserved as a runnable
+        desktop game, then packaged into a Windows application using PyInstaller so recruiters can
+        try the game without manually installing Python.
+      </p>
+    </section>
+
+    <section class="section muted">
+      <div class="container two-column">
+        <div>
+          <p class="eyebrow">Problem Statement</p>
+          <h2>The puzzle constraints</h2>
+          <p>
+            Three missionaries and three cannibals must cross a river using one boat. The boat can
+            carry a maximum of two people and must carry at least one passenger to move.
+          </p>
+          <p>
+            The key rule is that missionaries cannot be outnumbered by cannibals on either river bank
+            when missionaries are present on that bank.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Rules</h3>
+          <ul>
+            <li>3 missionaries</li>
+            <li>3 cannibals</li>
+            <li>1 boat</li>
+            <li>Boat capacity: 1–2 passengers</li>
+            <li>Missionaries cannot be outnumbered by cannibals</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="fsa" class="section container">
+      <p class="eyebrow">Solution Approach</p>
+      <h2>Finite-state representation</h2>
+
+      <div class="cards three">
+        <article class="card">
+          <h3>State Representation</h3>
+          <p><code>[M_left, C_left, Boat]</code></p>
+          <p>M_left is missionaries on the left bank, C_left is cannibals on the left bank, and Boat is 1 for left or 0 for right.</p>
+        </article>
+
+        <article class="card">
+          <h3>Initial and Goal State</h3>
+          <p>Initial state: <code>[3, 3, 1]</code></p>
+          <p>Goal state: <code>[0, 0, 0]</code></p>
+        </article>
+
+        <article class="card">
+          <h3>Legal Actions</h3>
+          <p><code>[1,0]</code>, <code>[0,1]</code>, <code>[1,1]</code>, <code>[2,0]</code>, <code>[0,2]</code></p>
+          <p>Each action represents passengers carried by the boat.</p>
+        </article>
+      </div>
+
+      <div class="logic-box">
+        <h3>State Transition and Validation</h3>
+        <p>
+          Every move triggers a state transition. The game checks whether the new state is valid,
+          detects unsafe bank conditions, displays a game-over condition when rules are violated,
+          and detects the winner condition when the final state is reached.
+        </p>
+      </div>
+    </section>
+
+    <section class="section muted">
+      <div class="container two-column">
+        <div>
+          <p class="eyebrow">Original Python/Pygame Implementation</p>
+          <h2>Preserving the original desktop game</h2>
+          <p>
+            The original app keeps the Pygame game loop, character selection, boat movement, state
+            display, images, music, and sound effects.
+          </p>
+          <ul>
+            <li><code>main.py</code> — Pygame loop and puzzle logic</li>
+            <li><code>Person.py</code> — character objects</li>
+            <li><code>Boat.py</code> — boat behavior</li>
+            <li><code>images/</code> — visual assets</li>
+            <li><code>music/</code> — background music and sound effects</li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="eyebrow">Windows Executable</p>
+          <h2>Packaged with PyInstaller</h2>
+          <p>
+            The project can be distributed as a Windows executable, allowing recruiters to run the
+            game without manual Python setup. The executable is built with PyInstaller folder mode
+            for better Pygame stability and easier asset debugging.
+          </p>
+          <a class="inline-link" href="../release/MissionariesCannibalsFSA-Windows.zip">Download Windows App →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="setup" class="section container">
+      <p class="eyebrow">Local Setup</p>
+      <h2>Run the original Pygame app</h2>
+      <pre><code>cd E:\laragon\www\missionaries-cannibals-fsa\original-pygame
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+python main.py</code></pre>
+      <a class="btn btn-outline" href="https://github.com/frnqpur/missionaries-cannibals-fsa" target="_blank" rel="noopener">Read Setup Guide</a>
+    </section>
+
+    <section id="screenshots" class="section muted">
+      <div class="container">
+        <p class="eyebrow">Screenshots</p>
+        <h2>Original Pygame gameplay</h2>
+
+        <div class="gallery">
+          <figure>
+            <img src="../demo-assets/screenshots/01_pygame_start_screen.png" alt="Original Pygame game start screen." />
+            <figcaption>Original Pygame start screen</figcaption>
+          </figure>
+          <figure>
+            <img src="../demo-assets/screenshots/03_pygame_character_selection.png" alt="Character selection in the Pygame game." />
+            <figcaption>Character selection</figcaption>
+          </figure>
+          <figure>
+            <img src="../demo-assets/screenshots/05_pygame_boat_moving.png" alt="Boat moving across the river." />
+            <figcaption>Boat movement transition</figcaption>
+          </figure>
+          <figure>
+            <img src="../demo-assets/screenshots/06_pygame_state_action_display.png" alt="State and action display in the Pygame game." />
+            <figcaption>State/action display</figcaption>
+          </figure>
+          <figure>
+            <img src="../demo-assets/screenshots/08_pygame_winner.png" alt="Winner screen in the Pygame game." />
+            <figcaption>Winner state</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <p class="eyebrow">Video Demo</p>
+      <h2>Watch the project walkthrough</h2>
+      <video class="demo-video" controls preload="metadata" poster="../demo-assets/screenshots/01_pygame_start_screen.png">
+        <source src="../demo-assets/video/missionaries-cannibals-fsa-demo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </section>
+
+    <section class="section muted">
+      <div class="container">
+        <p class="eyebrow">Technical Highlights</p>
+        <h2>What this project demonstrates</h2>
+        <div class="tags">
+          <span>Python</span>
+          <span>Pygame</span>
+          <span>Finite State Automata</span>
+          <span>State Transition</span>
+          <span>Rule Validation</span>
+          <span>Event-Driven Game Loop</span>
+          <span>PyInstaller Packaging</span>
+          <span>Portfolio Documentation</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <p class="eyebrow">Recruiter View</p>
+      <h2>Skills visible from this project</h2>
+      <div class="cards four">
+        <article class="card">
+          <h3>Interactive Applications</h3>
+          <p>Built a playable desktop app with real user input and visual feedback.</p>
+        </article>
+        <article class="card">
+          <h3>State-Based Logic</h3>
+          <p>Modeled puzzle conditions using explicit state representation and transition rules.</p>
+        </article>
+        <article class="card">
+          <h3>Desktop Packaging</h3>
+          <p>Packaged the Python/Pygame project into a Windows app using PyInstaller.</p>
+        </article>
+        <article class="card">
+          <h3>Professional Documentation</h3>
+          <p>Presented an older academic project in a recruiter-friendly portfolio format.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section id-summary">
+      <div class="container">
+        <h2>Ringkasan Bahasa Indonesia</h2>
+        <p>
+          Project ini adalah game Python/Pygame original untuk puzzle Missionaries and Cannibals
+          yang menggunakan representasi state, transition, validasi rule, game over, dan winner state.
+          Project juga dikemas menjadi Windows executable menggunakan PyInstaller agar mudah dicoba
+          oleh recruiter tanpa setup Python manual.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <p>Project by Frengki Josua Purba</p>
+      <div>
+        <a href="https://github.com/frnqpur/missionaries-cannibals-fsa" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://frengkipurba.com/projects/missionaries-cannibals-fsa">Portfolio</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

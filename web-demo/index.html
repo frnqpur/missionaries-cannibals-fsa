@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interactive web demo for an FSA-based Missionaries and Cannibals puzzle game." />
+  <title>FSA-Based Missionaries and Cannibals Puzzle Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <p class="eyebrow" data-i18n="eyebrow">Interactive Web Demo</p>
+      <h1 data-i18n="title">FSA-Based Missionaries and Cannibals Puzzle Game</h1>
+      <p class="subtitle" data-i18n="subtitle">
+        A browser-based visual demo adapted from the original Python/Pygame project, highlighting state representation and transitions inspired by Finite State Automata.
+      </p>
+      <div class="hero__links" aria-label="Project links">
+        <a href="https://github.com/frnqpur/missionaries-cannibals-fsa" target="_blank" rel="noopener" data-i18n="githubLink">GitHub Repository</a>
+        <a href="https://frengkipurba.com/projects/missionaries-cannibals-fsa" target="_blank" rel="noopener" data-i18n="portfolioLink">Portfolio Case Study</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="card game-card" aria-labelledby="game-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="gameEyebrow">Puzzle Board</p>
+          <h2 id="game-title" data-i18n="gameTitle">Move everyone safely to the right bank</h2>
+        </div>
+        <span class="status-pill" id="statusPill">Ready</span>
+      </div>
+
+      <div class="game-board" aria-live="polite">
+        <div class="bank bank--left" id="leftBank">
+          <h3 data-i18n="leftBank">Left Bank</h3>
+          <div class="people-grid" id="leftPeople"></div>
+        </div>
+
+        <div class="river" aria-label="River area">
+          <div class="river__label" data-i18n="river">River</div>
+          <div class="boat" id="boat" role="group" aria-label="Boat">
+            <div class="boat__visual" id="boatVisual">
+              <span class="boat__emoji" aria-hidden="true">🚤</span>
+            </div>
+            <div class="boat__passengers" id="boatPassengers"></div>
+          </div>
+        </div>
+
+        <div class="bank bank--right" id="rightBank">
+          <h3 data-i18n="rightBank">Right Bank</h3>
+          <div class="people-grid" id="rightPeople"></div>
+        </div>
+      </div>
+
+      <div class="controls" aria-label="Game controls">
+        <button id="moveButton" class="button button--primary" data-i18n="moveBoat">Move Boat</button>
+        <button id="resetButton" class="button" data-i18n="resetGame">Reset Game</button>
+        <button id="solutionButton" class="button" data-i18n="showSolution">Show Solution</button>
+        <button id="logButton" class="button" data-i18n="viewStateLog">View State Log</button>
+        <button id="languageButton" class="button">ID</button>
+        <button id="soundButton" class="button" data-i18n="soundOff">Sound OFF</button>
+      </div>
+
+      <p class="hint" data-i18n="clickHint">
+        Click a character on the same side as the boat to board. Click a boat passenger to unload.
+      </p>
+    </section>
+
+    <aside class="card state-card" aria-labelledby="state-title">
+      <div class="section-heading section-heading--compact">
+        <div>
+          <p class="eyebrow" data-i18n="stateEyebrow">FSA State</p>
+          <h2 id="state-title" data-i18n="stateTitle">Current State</h2>
+        </div>
+      </div>
+
+      <dl class="state-list">
+        <div>
+          <dt data-i18n="currentState">Current State</dt>
+          <dd id="currentState">[3, 3, 1]</dd>
+        </div>
+        <div>
+          <dt data-i18n="boatPosition">Boat Position</dt>
+          <dd id="boatPosition">Left</dd>
+        </div>
+        <div>
+          <dt data-i18n="selectedPassengers">Selected Passengers</dt>
+          <dd id="selectedPassengers">None</dd>
+        </div>
+        <div>
+          <dt data-i18n="moveCount">Move Count</dt>
+          <dd id="moveCount">0</dd>
+        </div>
+        <div>
+          <dt data-i18n="gameStatus">Game Status</dt>
+          <dd id="gameStatus">Ready</dd>
+        </div>
+        <div>
+          <dt data-i18n="lastAction">Last Action</dt>
+          <dd id="lastAction">No action yet</dd>
+        </div>
+      </dl>
+    </aside>
+
+    <section class="card fsa-card" aria-labelledby="fsa-title">
+      <p class="eyebrow" data-i18n="fsaEyebrow">How the FSA Works</p>
+      <h2 id="fsa-title" data-i18n="fsaTitle">State, action, transition, and validation</h2>
+      <div class="fsa-grid">
+        <div>
+          <strong data-i18n="stateDefinitionTitle">State</strong>
+          <p data-i18n="stateDefinition">The game uses [M_left, C_left, Boat], where Boat is 1 on the left bank and 0 on the right bank.</p>
+        </div>
+        <div>
+          <strong data-i18n="actionsTitle">Legal Actions</strong>
+          <p data-i18n="actionsDefinition">The boat can carry 1 or 2 passengers: 1M, 1C, 1M+1C, 2M, or 2C.</p>
+        </div>
+        <div>
+          <strong data-i18n="validationTitle">Validation</strong>
+          <p data-i18n="validationDefinition">A bank is safe when missionaries are not outnumbered by cannibals, unless there are no missionaries on that bank.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card log-card" id="logPanel" aria-labelledby="log-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="logEyebrow">Transition History</p>
+          <h2 id="log-title" data-i18n="logTitle">State Log</h2>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="step">Step</th>
+              <th data-i18n="previousState">Previous State</th>
+              <th data-i18n="action">Action</th>
+              <th data-i18n="newState">New State</th>
+              <th data-i18n="status">Status</th>
+            </tr>
+          </thead>
+          <tbody id="stateLogBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card solution-card" id="solutionPanel" aria-labelledby="solution-title" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="solutionEyebrow">Reference Path</p>
+          <h2 id="solution-title" data-i18n="solutionTitle">One Valid Solution</h2>
+        </div>
+      </div>
+      <ol class="solution-list" id="solutionList"></ol>
+    </section>
+  </main>
+
+  <audio id="bgMusic" src="assets/music/bgmusic.mp3" loop preload="none"></audio>
+  <audio id="winSound" src="assets/music/won.wav" preload="none"></audio>
+  <audio id="gameOverSound" src="assets/music/gameover.wav" preload="none"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
