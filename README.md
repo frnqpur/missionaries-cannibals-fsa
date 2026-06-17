@@ -60,7 +60,8 @@ https://missionaries-cannibals-fsa.frengkipurba.com/downloads/MissionariesCannib
 GitHub Releases link:
 
 ```text
-https://github.com/frnqpur/missionaries-cannibals-fsa/releases/download/untagged-6c688d33880bda1d5b8c/MissionariesCannibalsFSA-Windows.zip
+https://github.com/frnqpur/missionaries-cannibals-fsa/releases/tag/v1.0.0
+https://github.com/frnqpur/missionaries-cannibals-fsa/releases/download/v1.0.0/MissionariesCannibalsFSA-Windows.zip
 ```
 
 > Note: Windows may show a SmartScreen warning because this is an unsigned portfolio executable. Download only from the official GitHub Release or portfolio link.
